@@ -2,6 +2,12 @@
 
 Portfolio personnel développé avec **Next.js**, **React**, et **Tailwind CSS**, présentant mes compétences, projets et expériences en tant que développeur Fullstack & IA.
 
+
+---
+
+## 🌐 Visiter le site
+👉 https://new-portfolio-nu-roan.vercel.app/
+
 ---
 
 ## 🌐 Aperçu
@@ -17,7 +23,7 @@ Ce portfolio a été conçu pour mettre en valeur :
 
 ## 🧩 Stack technique
 
-- Next.js (App Router)
+- Next.js 
 - React
 - TypeScript
 - Tailwind CSS

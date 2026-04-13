@@ -29,8 +29,6 @@ Ce portfolio a été conçu pour mettre en valeur :
 
 ## 📸 Aperçu des sections
 
-### 🏠 Hero
-
 ![Hero](./public/screenshots/hero.png)
 ![About Me](./public/screenshots/aboutme.png)
 ![Skills](./public/screenshots/skills.png)

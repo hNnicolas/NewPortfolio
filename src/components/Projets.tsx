@@ -3,7 +3,17 @@
 import { useRef } from "react";
 import { FiChevronLeft, FiChevronRight, FiArrowRight } from "react-icons/fi";
 
-const projects = [
+type ScrollDirection = "left" | "right";
+
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Assistant Revue de Presse IA",
@@ -39,15 +49,17 @@ const projects = [
 ];
 
 export default function Projets() {
-  const scrollRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  const scroll = (direction) => {
+  const scroll = (direction: ScrollDirection): void => {
     if (!scrollRef.current) return;
 
-    const card = scrollRef.current.firstElementChild;
+    const container = scrollRef.current;
+    const card = container.firstElementChild as HTMLElement | null;
+
     const cardWidth = card ? card.offsetWidth + 24 : 320;
 
-    scrollRef.current.scrollBy({
+    container.scrollBy({
       left: direction === "left" ? -cardWidth : cardWidth,
       behavior: "smooth",
     });
@@ -73,7 +85,7 @@ export default function Projets() {
             id="projets-desc"
             className="mt-4 text-sm md:text-base max-w-md text-gray-600"
           >
-            A selection of projects I built from AI-powered apps to immersive
+            A selection of projects I built — from AI-powered apps to immersive
             web experiences.
           </p>
         </header>
@@ -91,16 +103,15 @@ export default function Projets() {
             ref={scrollRef}
             role="list"
             aria-label="Projects list"
-            className="flex gap-6 overflow-x-auto pb-4 scroll-smooth"
+            className="flex gap-6 overflow-x-auto scroll-smooth pb-4"
           >
             {projects.map((project) => (
               <article
                 key={project.id}
                 role="listitem"
                 tabIndex={0}
-                className="flex flex-col flex-none w-[320px] md:w-[360px] rounded-2xl border border-gray-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 bg-white"
+                className="flex flex-col flex-none w-[320px] md:w-[360px] rounded-2xl border border-gray-200 shadow-sm bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
               >
-                {/* IMAGE */}
                 <div className="relative w-full h-[200px] overflow-hidden rounded-t-2xl">
                   <img
                     src={project.image}

@@ -8,10 +8,10 @@ import {
 } from "react-icons/fa";
 
 export default function AboutMe() {
-  const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showTopBtn, setShowTopBtn] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       setShowTopBtn(window.scrollY > 300);
     };
 
@@ -19,11 +19,11 @@ export default function AboutMe() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToTop = () => {
+  const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const getAge = (birthDate) => {
+  const getAge = (birthDate: string): number => {
     const today = new Date();
     const birth = new Date(birthDate);
 
@@ -99,7 +99,7 @@ export default function AboutMe() {
 
             <a
               href="#skills"
-              className="text-[#4FB579] flex items-center gap-2 text-sm group"
+              className="text-[#4FB579] flex items-center gap-2 text-sm group focus:outline-none focus:ring-2 focus:ring-white rounded"
             >
               Learn more
               <FaArrowRight
@@ -123,7 +123,7 @@ export default function AboutMe() {
 
             <a
               href="#experience"
-              className="text-[#4FB579] flex items-center gap-2 text-sm group"
+              className="text-[#4FB579] flex items-center gap-2 text-sm group focus:outline-none focus:ring-2 focus:ring-white rounded"
             >
               Learn more
               <FaArrowRight
@@ -147,7 +147,7 @@ export default function AboutMe() {
 
             <a
               href="#projets"
-              className="text-[#4FB579] flex items-center gap-2 text-sm group"
+              className="text-[#4FB579] flex items-center gap-2 text-sm group focus:outline-none focus:ring-2 focus:ring-white rounded"
             >
               Learn more
               <FaArrowRight
@@ -163,7 +163,7 @@ export default function AboutMe() {
         <button
           onClick={scrollToTop}
           aria-label="Scroll back to top"
-          className="fixed bottom-16 right-6 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition"
+          className="fixed bottom-16 right-6 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition focus:outline-none focus:ring-2 focus:ring-[#4FB579]"
         >
           <FaArrowUp className="text-[#4FB579]" size={20} />
         </button>

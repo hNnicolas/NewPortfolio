@@ -1,73 +1,122 @@
-# React + TypeScript + Vite
+# 🚀 Portfolio – Nicolas Huang
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personnel développé avec **Next.js**, **React**, et **Tailwind CSS**, présentant mes compétences, projets et expériences en tant que développeur Fullstack & IA.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌐 Aperçu
 
-## React Compiler
+Ce portfolio a été conçu pour mettre en valeur :
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Mes compétences techniques (Frontend / Backend / IA)
+- Mes projets personnels et professionnels
+- Mon parcours de formation et expériences
+- Mes informations de contact
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🧩 Stack technique
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- React Icons
+- HTML5 / SEO / Accessibilité (WCAG)
+- Git & GitHub
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📸 Aperçu des sections
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🏠 Hero
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+![Hero](./public/screenshots/hero.png)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Section d’introduction avec :
+
+- Navigation principale
+- Présentation
+- Bouton de téléchargement du CV
+- Liens sociaux
+
+---
+
+### 👨‍💻 About Me
+
+![About Me](./public/screenshots/aboutme.png)
+
+Présentation personnelle :
+
+- Parcours
+- Motivation
+- Vision du développement web
+
+---
+
+### ⚡ Skills
+
+![Skills](./public/screenshots/skills.png)
+
+Liste de mes compétences techniques :
+
+- React / Next.js
+- Vue.js
+- Node.js
+- PHP / Symfony
+- Python
+- Three.js / WebGL
+
+---
+
+### 🌍 Languages
+
+![Languages](./public/screenshots/languages.png)
+
+Langues parlées :
+
+- Français (natif)
+- Anglais (courant)
+- Japonais (courant)
+
+---
+
+### 💼 Experience
+
+![Experience](./public/screenshots/experience.png)
+
+Parcours professionnel et formation :
+
+- Projets IA
+- Développement frontend
+- Formations certifiantes
+
+---
+
+### 🧪 Projets
+
+![Projects](./public/screenshots/projects.png)
+
+Sélection de projets :
+
+- IA News Generator
+- Explore Norway
+- Recettes du quotidien
+- Ohmyfood
+
+---
+
+### 📬 Contact
+
+![Contact](./public/screenshots/contact.png)
+
+Formulaire de contact avec :
+
+- Email
+- Téléphone
+- Réseaux sociaux
+- Formulaire fonctionnel (mailto / API)
+
+---
+
+## 📁 Structure du projet

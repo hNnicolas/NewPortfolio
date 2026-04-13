@@ -32,91 +32,9 @@ Ce portfolio a été conçu pour mettre en valeur :
 ### 🏠 Hero
 
 ![Hero](./public/screenshots/hero.png)
-
-Section d’introduction avec :
-
-- Navigation principale
-- Présentation
-- Bouton de téléchargement du CV
-- Liens sociaux
-
----
-
-### 👨‍💻 About Me
-
 ![About Me](./public/screenshots/aboutme.png)
-
-Présentation personnelle :
-
-- Parcours
-- Motivation
-- Vision du développement web
-
----
-
-### ⚡ Skills
-
 ![Skills](./public/screenshots/skills.png)
-
-Liste de mes compétences techniques :
-
-- React / Next.js
-- Vue.js
-- Node.js
-- PHP / Symfony
-- Python
-- Three.js / WebGL
-
----
-
-### 🌍 Languages
-
 ![Languages](./public/screenshots/languages.png)
-
-Langues parlées :
-
-- Français (natif)
-- Anglais (courant)
-- Japonais (courant)
-
----
-
-### 💼 Experience
-
 ![Experience](./public/screenshots/experience.png)
-
-Parcours professionnel et formation :
-
-- Projets IA
-- Développement frontend
-- Formations certifiantes
-
----
-
-### 🧪 Projets
-
 ![Projects](./public/screenshots/projects.png)
-
-Sélection de projets :
-
-- IA News Generator
-- Explore Norway
-- Recettes du quotidien
-- Ohmyfood
-
----
-
-### 📬 Contact
-
 ![Contact](./public/screenshots/contact.png)
-
-Formulaire de contact avec :
-
-- Email
-- Téléphone
-- Réseaux sociaux
-- Formulaire fonctionnel (mailto / API)
-
----
-
-## 📁 Structure du projet

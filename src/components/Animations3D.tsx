@@ -46,6 +46,22 @@ const Animations: Animation3D[] = [
     image: "/images/fishocean.png",
     link: "https://fish-ocean.vercel.app/",
   },
+  {
+    id: 5,
+    title: "Studio Ghibli",
+    description:
+      "Studio Ghibli is an immersive animated web experience inspired by the magical worlds and storytelling atmosphere of iconic animation movies. Built with modern web technologies, the project combines interactive animations, cinematic transitions, and dynamic visual effects to recreate a sense of wonder and exploration directly in the browser. Designed as a tribute to animation art and creative storytelling, this experience focuses on fluid interactions, immersive visuals, and emotional user engagement.",
+    image: "/images/studioghibli.png",
+    link: "https://studiosghibli.netlify.app/",
+  },
+  {
+    id: 6,
+    title: "Japan Scenary",
+    description:
+      "Japan Scenary is an immersive interactive 3D gallery inspired by my personal journey and experiences in Japan. Built with Three.js and GSAP, the project allows users to explore atmospheric Japanese landscapes and travel photography through smooth cinematic camera movements, dynamic interactions, and immersive environmental effects. Users can navigate freely, zoom into scenes, switch between day and night modes, and experience a calm and contemplative digital atmosphere inspired by Japan’s unique aesthetic and culture.",
+    image: "/images/japanscenary.png",
+    link: "https://japan-scenary.netlify.app/",
+  },
 ];
 
 export default function Animation3D() {

@@ -40,6 +40,12 @@ export default function Hero() {
           Projets
         </a>
         <a
+          href="#animations3D"
+          className="hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-white"
+        >
+          Animations 3D
+        </a>
+        <a
           href="#contact"
           className="hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-white"
         >

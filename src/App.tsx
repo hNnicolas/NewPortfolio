@@ -5,6 +5,7 @@ import Skills from "./components/Skills";
 import Languages from "./components/Languages";
 import Experience from "./components/Experience";
 import Projets from "./components/Projets";
+import Animations3D from "./components/Animations3D";
 import Contact from "./components/Contact";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Languages />
       <Experience />
       <Projets />
+      <Animations3D />
       <Contact />
       <Footer />
     </main>

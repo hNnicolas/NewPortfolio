@@ -18,7 +18,7 @@ const Animations: Animation3D[] = [
     id: 1,
     title: "Haunted House Ghost",
     description:
-      "NewsFoundry is a web application that automatically generates press reviews based on a given theme, using a backend powered by news sources and artificial intelligence.",
+      "Haunted House is an immersive and terrifying experience that integrates a 3D-modeled haunted house with interactive features, dynamic lighting and shadow effects, and animated spotlights. This project showcases skills in WebGL, Three.js, Blender, and modern technologies like Vite.",
     image: "/images/hauntedhouse.png",
     link: "https://haunted-house-ghost.vercel.app/",
   },
@@ -26,7 +26,7 @@ const Animations: Animation3D[] = [
     id: 2,
     title: "Beautiful fireworks",
     description:
-      "This is a beautiful website to discovery Norway for lovers of beautiful design and plants.",
+      "Fireworks is an interactive project that combines dynamic light and shadow effects with a spectacular sunset. Using GLSL shaders and Perlin Noise algorithms, the project offers an immersive experience where the user can interact with the scene in real time. A simple click on the screen triggers a colorful firework display, adding to the magic of the landscape.",
     image: "/images/fireworks.png",
     link: "https://fireworks-sunset.vercel.app/",
   },
@@ -34,7 +34,7 @@ const Animations: Animation3D[] = [
     id: 3,
     title: "Raging Sea",
     description:
-      "This project aims to create a dynamic web application for displaying and searching for recipes.",
+      "Raging Sea is an interactive 3D experience built with Three.js and WebGL, simulating a dynamic and immersive ocean environment. Users can customize wave elevation, water colors, depth, and animation parameters in real time through a graphical interface, showcasing modern real-time 3D capabilities directly in the browser.",
     image: "/images/ragingsea.png",
     link: "https://raging-sea-project.vercel.app/",
   },
@@ -42,7 +42,7 @@ const Animations: Animation3D[] = [
     id: 4,
     title: "Fish Ocean",
     description:
-      "Ohmyfood is a responsive web application that allows users to explore menus from gourmet restaurants and plan their meals in advance.",
+      "Fish Ocean is an immersive real-time 3D underwater experience built with React Three Fiber and Three.js. The project simulates a dynamic ocean environment with animated fish, realistic lighting, shadows, and fluid water effects. Users can explore an interactive underwater world where fish movements and environmental animations create a smooth and realistic browser-based 3D experience.",
     image: "/images/fishocean.png",
     link: "https://fish-ocean.vercel.app/",
   },

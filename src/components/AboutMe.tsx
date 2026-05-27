@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  FaCode,
-  FaStar,
-  FaSuitcase,
-  FaArrowUp,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaArrowUp, FaArrowRight } from "react-icons/fa";
 
 export default function AboutMe() {
   const [showTopBtn, setShowTopBtn] = useState<boolean>(false);
@@ -87,7 +81,11 @@ export default function AboutMe() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 bg-[#4FB579] rounded-full flex items-center justify-center">
-              <FaCode size={24} />
+              <img
+                src="/skills.png"
+                alt="Skillslogo star"
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              />
             </div>
 
             <h3 className="text-lg font-semibold">Skills</h3>
@@ -111,7 +109,11 @@ export default function AboutMe() {
 
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 bg-[#4FB579] rounded-full flex items-center justify-center">
-              <FaStar size={24} />
+              <img
+                src="/XP.png"
+                alt="Expérience logo star"
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              />
             </div>
 
             <h3 className="text-lg font-semibold">Experience</h3>
@@ -135,7 +137,11 @@ export default function AboutMe() {
 
           <div className="flex flex-col items-center gap-4">
             <div className="w-16 h-16 bg-[#4FB579] rounded-full flex items-center justify-center">
-              <FaSuitcase size={24} />
+              <img
+                src="/projet.png"
+                alt="Projet Rocketlogo"
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              />
             </div>
 
             <h3 className="text-lg font-semibold">Projets</h3>
@@ -147,6 +153,34 @@ export default function AboutMe() {
 
             <a
               href="#projets"
+              className="text-[#4FB579] flex items-center gap-2 text-sm group focus:outline-none focus:ring-2 focus:ring-white rounded"
+            >
+              Learn more
+              <FaArrowRight
+                className="transition-transform duration-300 group-hover:translate-x-1"
+                size={14}
+              />
+            </a>
+          </div>
+          <div className="flex flex-col items-center gap-4">
+            <div className="w-16 h-16 bg-[#4FB579] rounded-full flex items-center justify-center">
+              <img
+                src="/threejs.png"
+                alt="Three.js logo"
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </div>
+
+            <h3 className="text-lg font-semibold">Animation 3D</h3>
+
+            <p className="text-white text-sm leading-relaxed max-w-xs">
+              My personal projects when I want to have fun and experiment with
+              3D web development using Three.js and Blender. Check them out if
+              you want to see something different!
+            </p>
+
+            <a
+              href="#animations3D"
               className="text-[#4FB579] flex items-center gap-2 text-sm group focus:outline-none focus:ring-2 focus:ring-white rounded"
             >
               Learn more

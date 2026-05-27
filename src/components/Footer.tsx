@@ -41,6 +41,14 @@ export default function Footer() {
             </li>
             <li>
               <a
+                href="#animations3D"
+                className="hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-white"
+              >
+                Animations 3D
+              </a>
+            </li>
+            <li>
+              <a
                 href="#contact"
                 className="hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-white rounded"
               >

@@ -54,6 +54,17 @@ const projects: Project[] = [
     image: "/images/booki.png",
     link: "https://p2-booki.netlify.app/",
   },
+  {
+    id: 6,
+    title: "Print It",
+    description: `Print It is a dynamic image carousel designed for digital and print solutions.
+
+    It showcases high-quality printing services for businesses, including high-definition prints and large-format production for offices, events, and professional communication needs.
+    
+    The project focuses on a smooth interactive experience for presenting visual content in a clear and engaging way.`,
+    image: "/images/printit.png",
+    link: "https://p3print-it.netlify.app/",
+  },
 ];
 
 export default function Projets() {

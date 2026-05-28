@@ -46,6 +46,14 @@ const projects: Project[] = [
     image: "/images/ohmyfood.png",
     link: "https://p5-ohmyfood.netlify.app/",
   },
+  {
+    id: 5,
+    title: "Booki",
+    description: `Booki is a static website for booking accommodations and activities, developed using HTML and CSS.
+    The goal was to replicate a provided mockup while respecting responsive design constraints.`,
+    image: "/images/booki.png",
+    link: "https://p2-booki.netlify.app/",
+  },
 ];
 
 export default function Projets() {

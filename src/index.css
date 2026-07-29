@@ -47,7 +47,6 @@
 
   .mail-track {
     stroke-dasharray: 6 8;
-    animation: mail-track-drift 3s linear infinite;
   }
 
   .mail-envelope {
@@ -64,12 +63,14 @@
     offset-path: path("M 24 132 C 96 26, 224 26, 296 100");
     offset-rotate: 0deg;
     transform-style: preserve-3d;
-    animation: mail-fly 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    /* Plays once, on send — not a permanent loop in the corner of the eye. */
+    animation: mail-fly 2.2s cubic-bezier(0.45, 0, 0.55, 1) 1 both;
   }
 
   .mail-landing {
     transform-origin: center;
-    animation: mail-landing-pulse 5s ease-out infinite;
+    opacity: 0.25;
+    animation: mail-landing-pulse 0.9s ease-out 1.9s 1 both;
   }
 
   @keyframes mail-fly {
@@ -78,39 +79,32 @@
       opacity: 0;
       transform: rotateX(38deg) rotateZ(-10deg) scale(0.72);
     }
-    10% {
+    12% {
       opacity: 1;
       transform: rotateX(38deg) rotateZ(-6deg) scale(1);
     }
-    88% {
+    82% {
       opacity: 1;
       transform: rotateX(38deg) rotateZ(6deg) scale(1);
     }
     100% {
       offset-distance: 100%;
       opacity: 0;
-      transform: rotateX(38deg) rotateZ(10deg) scale(0.72);
-    }
-  }
-
-  @keyframes mail-track-drift {
-    to {
-      stroke-dashoffset: -28;
+      transform: rotateX(38deg) rotateZ(10deg) scale(0.6);
     }
   }
 
   @keyframes mail-landing-pulse {
-    0%,
-    80% {
+    0% {
       opacity: 0.25;
       transform: scale(1);
     }
-    92% {
-      opacity: 0.9;
-      transform: scale(1.5);
+    45% {
+      opacity: 0.95;
+      transform: scale(1.6);
     }
     100% {
-      opacity: 0.25;
+      opacity: 0.55;
       transform: scale(1);
     }
   }
@@ -143,18 +137,14 @@
   }
 
   /*
-   * The blanket rule above would freeze these on their final keyframe, which
-   * is the invisible one. Park them mid-flight and fully visible instead.
+   * The blanket rule above would freeze the envelope on its final keyframe,
+   * which is the invisible one. Park it at the inbox, visible, instead.
    */
   .mail-envelope {
     animation: none !important;
-    offset-distance: 52%;
+    offset-distance: 100%;
     opacity: 1;
     transform: rotateX(38deg);
-  }
-
-  .mail-track {
-    animation: none !important;
   }
 
   .mail-landing {

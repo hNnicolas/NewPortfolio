@@ -72,7 +72,11 @@ export default function Contact() {
             </p>
           </address>
 
-          <MailInTransit />
+          {/*
+            Only shown once the form has been completed and handed to the mail
+            client — a permanent loop here would pull the eye off the form.
+          */}
+          {status === "sent" && <MailInTransit />}
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">

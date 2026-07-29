@@ -38,13 +38,6 @@ export default function Footer() {
             Fullstack developer based in Paris, building modern web applications
             and interactive 3D experiences.
           </p>
-
-          <a
-            href={`mailto:${CONTACT.email}`}
-            className="mt-4 inline-block rounded text-sm text-[#6EDC9B] underline underline-offset-4 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6EDC9B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1C1C1D]"
-          >
-            {CONTACT.email}
-          </a>
         </div>
 
         <nav aria-label="Footer">
@@ -65,7 +58,10 @@ export default function Footer() {
         </nav>
 
         <div>
-          <h3 id="footer-socials" className="mb-4 text-sm font-semibold text-white">
+          <h3
+            id="footer-socials"
+            className="mb-4 text-sm font-semibold text-white"
+          >
             Follow my work
           </h3>
 

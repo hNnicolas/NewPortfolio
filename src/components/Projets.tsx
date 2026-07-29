@@ -1,189 +1,106 @@
-"use client";
+import CardCarousel, { type CarouselCard } from "./CardCarousel";
 
-import { useRef } from "react";
-import { FiChevronLeft, FiChevronRight, FiArrowRight } from "react-icons/fi";
-
-type ScrollDirection = "left" | "right";
-
-type Project = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-};
-
-const projects: Project[] = [
+const projects: CarouselCard[] = [
   {
     id: 1,
-    title: "Assistant Revue de Presse IA",
-    description:
-      "NewsFoundry is a web application that automatically generates press reviews based on a given theme, using a backend powered by news sources and artificial intelligence.",
-    image: "/images/newsfoundry.png",
-    link: "https://p14-news-foundry-frontend.vercel.app/",
+    title: "WeShareKids — GardePartagée",
+    description: `A shared-custody app for separated families: real-time custody calendar, shared tasks, parent-to-parent messaging, child support and expense splitting, plus an encrypted photo and document vault.
+
+It also offers a read-only child access mode secured by a code and a PIN.
+
+Built as a monorepo — a React Native (Expo) app with an Express, Prisma and Socket.io backend on PostgreSQL.`,
+    image: "/images/weshare.webp",
+    link: "https://weshare-mobile.vercel.app/",
   },
   {
     id: 2,
-    title: "Explore Norway",
-    description:
-      "This is a beautiful website to discovery Norway for lovers of beautiful design and plants.",
-    image: "/images/norway.png",
-    link: "https://norway-trip.netlify.app/",
+    title: "HappyKids",
+    description: `HappyKids turns the back-to-school supply list into a stress-free task: scan the school list as a PDF or a photo and every item is recognised automatically.
+
+It then compares prices across Amazon, Carrefour, Auchan, Monoprix, Fnac and Cultura and builds the cheapest possible cart, with ready-made lists for each grade level.`,
+    image: "/images/happykids.webp",
+    link: "https://happykids-frontend.vercel.app/",
   },
   {
     id: 3,
-    title: "Recettes du Quotidien",
+    title: "Assistant Revue de Presse IA",
     description:
-      "This project aims to create a dynamic web application for displaying and searching for recipes.",
-    image: "/images/lespetitsplats.png",
-    link: "https://p5-lespetits-plats.netlify.app/",
+      "NewsFoundry is a web application that automatically generates press reviews based on a given theme, using a backend powered by news sources and artificial intelligence.",
+    image: "/images/newsfoundry.webp",
+    link: "https://p14-news-foundry-frontend.vercel.app/",
   },
   {
     id: 4,
-    title: "Ohmyfood",
+    title: "Explore Norway",
     description:
-      "Ohmyfood is a responsive web application that allows users to explore menus from gourmet restaurants and plan their meals in advance.",
-    image: "/images/ohmyfood.png",
-    link: "https://p5-ohmyfood.netlify.app/",
+      "A showcase website designed to make you want to discover Norway — built for lovers of beautiful design, landscapes and plants.",
+    image: "/images/norway.webp",
+    link: "https://norway-trip.netlify.app/",
   },
   {
     id: 5,
-    title: "Booki",
-    description: `Booki is a static website for booking accommodations and activities, developed using HTML and CSS.
-    The goal was to replicate a provided mockup while respecting responsive design constraints.`,
-    image: "/images/booki.png",
-    link: "https://p2-booki.netlify.app/",
+    title: "Recettes du Quotidien",
+    description:
+      "A dynamic web application for browsing and searching recipes, with a custom search algorithm and filtering by ingredients, appliances and utensils.",
+    image: "/images/lespetitsplats.webp",
+    link: "https://p5-lespetits-plats.netlify.app/",
   },
   {
     id: 6,
-    title: "Print It",
-    description: `Print It is a dynamic image carousel designed for digital and print solutions.
+    title: "Ohmyfood",
+    description:
+      "A responsive web application that lets users explore menus from gourmet restaurants and compose their meals in advance, with CSS-only animations.",
+    image: "/images/ohmyfood.webp",
+    link: "https://p5-ohmyfood.netlify.app/",
+  },
+  {
+    id: 7,
+    title: "Booki",
+    description: `A static website for booking accommodation and activities, built with HTML and CSS.
 
-    It showcases high-quality printing services for businesses, including high-definition prints and large-format production for offices, events, and professional communication needs.
-    
-    The project focuses on a smooth interactive experience for presenting visual content in a clear and engaging way.`,
-    image: "/images/printit.png",
+The goal was to reproduce a supplied mockup pixel for pixel while meeting strict responsive design constraints.`,
+    image: "/images/booki.webp",
+    link: "https://p2-booki.netlify.app/",
+  },
+  {
+    id: 8,
+    title: "Print It",
+    description: `A dynamic image carousel built for a digital and print solutions company.
+
+It showcases high-definition printing and large-format production for offices, events and professional communication, focusing on a smooth interactive way to present visual content.`,
+    image: "/images/printit.webp",
     link: "https://p3print-it.netlify.app/",
   },
 ];
 
 export default function Projets() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  const scroll = (direction: ScrollDirection): void => {
-    if (!scrollRef.current) return;
-
-    const container = scrollRef.current;
-    const card = container.firstElementChild as HTMLElement | null;
-
-    const cardWidth = card ? card.offsetWidth + 24 : 320;
-
-    container.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <section
       id="projets"
       aria-labelledby="projets-title"
-      aria-describedby="projets-desc"
-      className="w-full py-24 px-6 md:px-12 bg-white overflow-hidden"
+      className="w-full bg-white px-4 py-20 sm:px-6 md:px-12 md:py-24"
     >
-      <div className="max-w-6xl mx-auto">
-        <header className="flex flex-col items-center text-center mb-16">
+      <div className="mx-auto max-w-6xl">
+        <header className="mb-12 flex flex-col items-center text-center md:mb-16">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#1F7A4D]">
+            Portfolio
+          </p>
+
           <h2
             id="projets-title"
-            className="text-3xl md:text-5xl font-bold text-gray-900"
+            className="text-3xl font-bold text-gray-900 md:text-5xl"
           >
-            Projets
+            Projects
           </h2>
 
-          <p
-            id="projets-desc"
-            className="mt-4 text-sm md:text-base max-w-md text-gray-600"
-          >
-            A selection of projects I built — from AI-powered apps to immersive
-            web experiences.
+          <p className="mt-4 max-w-lg text-pretty text-sm text-gray-600 md:text-base">
+            A selection of the products I have built — from AI-powered
+            applications to fullstack mobile apps and responsive websites.
           </p>
         </header>
 
-        <div className="relative">
-          <button
-            onClick={() => scroll("left")}
-            aria-label="Scroll projects left"
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
-          >
-            <FiChevronLeft aria-hidden="true" />
-          </button>
-
-          <div
-            ref={scrollRef}
-            role="list"
-            aria-label="Projects list"
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-4"
-          >
-            {projects.map((project) => (
-              <article
-                key={project.id}
-                role="listitem"
-                tabIndex={0}
-                className="flex flex-col flex-none w-[320px] md:w-[360px] rounded-2xl border border-gray-200 shadow-sm bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
-              >
-                <div className="relative w-full h-[200px] overflow-hidden rounded-t-2xl">
-                  <img
-                    src={project.image}
-                    alt={`Preview of ${project.title}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    aria-hidden="true"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.55), transparent)",
-                    }}
-                  />
-                </div>
-
-                <div className="p-5 flex flex-col gap-3 flex-1 bg-[#111111] rounded-b-2xl">
-                  <h3 className="text-base font-semibold text-white">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-300 flex-1">
-                    {project.description}
-                  </p>
-
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit site for ${project.title}`}
-                    className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
-                  >
-                    Visit site <FiArrowRight aria-hidden="true" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <button
-            onClick={() => scroll("right")}
-            aria-label="Scroll projects right"
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
-          >
-            <FiChevronRight aria-hidden="true" />
-          </button>
-        </div>
+        <CardCarousel cards={projects} label="Projects" />
       </div>
-
-      <style>{`
-        [role="list"]::-webkit-scrollbar { display: none; }
-      `}</style>
     </section>
   );
 }

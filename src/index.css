@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Anchor targets clear the fixed navbar instead of hiding behind it. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #ffffff;
+    /* Never let a wide child (carousel, table) scroll the whole page. */
+    overflow-x: hidden;
+  }
+
+  /* A visible focus ring everywhere, even where a component forgot one. */
+  :focus-visible {
+    outline: 2px solid #1f7a4d;
+    outline-offset: 2px;
+  }
+
+  /* Landmarks receive focus programmatically; they must not show a ring. */
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  /* Horizontal carousels: hide the scrollbar without hiding the scrolling. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,186 +1,84 @@
-"use client";
+import CardCarousel, { type CarouselCard } from "./CardCarousel";
 
-import { useRef } from "react";
-import { FiChevronLeft, FiChevronRight, FiArrowRight } from "react-icons/fi";
-
-type ScrollDirection = "left" | "right";
-
-type Animation3D = {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-};
-
-const Animations: Animation3D[] = [
+const animations: CarouselCard[] = [
   {
     id: 1,
     title: "Haunted House Ghost",
     description:
-      "Haunted House is an immersive and terrifying experience that integrates a 3D-modeled haunted house with interactive features, dynamic lighting and shadow effects, and animated spotlights. This project showcases skills in WebGL, Three.js, Blender, and modern technologies like Vite.",
-    image: "/images/hauntedhouse.png",
+      "An immersive and eerie experience combining a 3D-modelled haunted house with interactive features, dynamic lighting and shadows, and animated spotlights. Built with WebGL, Three.js, Blender and Vite.",
+    image: "/images/hauntedhouse.webp",
     link: "https://haunted-house-ghost.vercel.app/",
   },
   {
     id: 2,
-    title: "Beautiful fireworks",
+    title: "Beautiful Fireworks",
     description:
-      "Fireworks is an interactive project that combines dynamic light and shadow effects with a spectacular sunset. Using GLSL shaders and Perlin Noise algorithms, the project offers an immersive experience where the user can interact with the scene in real time. A simple click on the screen triggers a colorful firework display, adding to the magic of the landscape.",
-    image: "/images/fireworks.png",
+      "An interactive scene mixing dynamic light and shadow effects with a spectacular sunset. Using GLSL shaders and Perlin noise, a single click triggers a colourful firework display over the landscape in real time.",
+    image: "/images/fireworks.webp",
     link: "https://fireworks-sunset.vercel.app/",
   },
   {
     id: 3,
     title: "Raging Sea",
     description:
-      "Raging Sea is an interactive 3D experience built with Three.js and WebGL, simulating a dynamic and immersive ocean environment. Users can customize wave elevation, water colors, depth, and animation parameters in real time through a graphical interface, showcasing modern real-time 3D capabilities directly in the browser.",
-    image: "/images/ragingsea.png",
+      "An interactive 3D ocean built with Three.js and WebGL. Wave elevation, water colours, depth and animation parameters can all be tuned in real time through a graphical interface, straight in the browser.",
+    image: "/images/ragingsea.webp",
     link: "https://raging-sea-project.vercel.app/",
   },
   {
     id: 4,
     title: "Fish Ocean",
     description:
-      "Fish Ocean is an immersive real-time 3D underwater experience built with React Three Fiber and Three.js. The project simulates a dynamic ocean environment with animated fish, realistic lighting, shadows, and fluid water effects. Users can explore an interactive underwater world where fish movements and environmental animations create a smooth and realistic browser-based 3D experience.",
-    image: "/images/fishocean.png",
+      "A real-time underwater world built with React Three Fiber and Three.js, simulating animated fish, realistic lighting, shadows and fluid water effects in a smooth browser-based 3D experience.",
+    image: "/images/fishocean.webp",
     link: "https://fish-ocean.vercel.app/",
   },
   {
     id: 5,
     title: "Studio Ghibli",
     description:
-      "Studio Ghibli is an immersive animated web experience inspired by the magical worlds and storytelling atmosphere of iconic animation movies. Built with modern web technologies, the project combines interactive animations, cinematic transitions, and dynamic visual effects to recreate a sense of wonder and exploration directly in the browser. Designed as a tribute to animation art and creative storytelling, this experience focuses on fluid interactions, immersive visuals, and emotional user engagement.",
-    image: "/images/studioghibli.png",
+      "An animated web experience inspired by the magical worlds of iconic animation films. Interactive animations, cinematic transitions and dynamic visual effects recreate a sense of wonder directly in the browser.",
+    image: "/images/studioghibli.webp",
     link: "https://studiosghibli.netlify.app/",
   },
   {
     id: 6,
     title: "Japan Scenary",
     description:
-      "Japan Scenary is an immersive interactive 3D gallery inspired by my personal journey and experiences in Japan. Built with Three.js and GSAP, the project allows users to explore atmospheric Japanese landscapes and travel photography through smooth cinematic camera movements, dynamic interactions, and immersive environmental effects. Users can navigate freely, zoom into scenes, switch between day and night modes, and experience a calm and contemplative digital atmosphere inspired by Japan’s unique aesthetic and culture.",
-    image: "/images/japanscenary.png",
+      "An interactive 3D gallery inspired by my own travels in Japan. Built with Three.js and GSAP, it lets you explore landscapes and travel photography through cinematic camera moves, free navigation, zoom, and a day/night mode.",
+    image: "/images/japanscenary.webp",
     link: "https://japan-scenary.netlify.app/",
   },
 ];
 
-export default function Animation3D() {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  const scroll = (direction: ScrollDirection): void => {
-    if (!scrollRef.current) return;
-
-    const container = scrollRef.current;
-    const card = container.firstElementChild as HTMLElement | null;
-
-    const cardWidth = card ? card.offsetWidth + 24 : 320;
-
-    container.scrollBy({
-      left: direction === "left" ? -cardWidth : cardWidth,
-      behavior: "smooth",
-    });
-  };
-
+export default function Animations3D() {
   return (
     <section
       id="animations3D"
-      aria-labelledby="animation3D-title"
-      aria-describedby="animation3D-desc"
-      className="w-full py-24 px-6 md:px-12 bg-white overflow-hidden"
+      aria-labelledby="animations3D-title"
+      className="w-full bg-[#F7F9FB] px-4 py-20 sm:px-6 md:px-12 md:py-24"
     >
-      <div className="max-w-6xl mx-auto">
-        <header className="flex flex-col items-center text-center mb-16">
+      <div className="mx-auto max-w-6xl">
+        <header className="mb-12 flex flex-col items-center text-center md:mb-16">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#1F7A4D]">
+            Creative coding
+          </p>
+
           <h2
-            id="animation3D-title"
-            className="text-3xl md:text-5xl font-bold text-gray-900"
+            id="animations3D-title"
+            className="text-3xl font-bold text-gray-900 md:text-5xl"
           >
             Animations 3D
           </h2>
 
-          <p
-            id="animation3D-desc"
-            className="mt-4 text-sm md:text-base max-w-md text-gray-600"
-          >
-            A selection of Animation 3D I built — from AI-powered apps to
-            immersive 3D web experiences.
+          <p className="mt-4 max-w-lg text-pretty text-sm text-gray-600 md:text-base">
+            Personal experiments in real-time 3D on the web, built with
+            Three.js, WebGL, GLSL shaders and Blender.
           </p>
         </header>
 
-        <div className="relative">
-          <button
-            onClick={() => scroll("left")}
-            aria-label="Scroll animation3D left"
-            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
-          >
-            <FiChevronLeft aria-hidden="true" />
-          </button>
-
-          <div
-            ref={scrollRef}
-            role="list"
-            aria-label="animation3D list"
-            className="flex gap-6 overflow-x-auto scroll-smooth pb-4"
-          >
-            {Animations.map((Animations) => (
-              <article
-                key={Animations.id}
-                role="listitem"
-                tabIndex={0}
-                className="flex flex-col flex-none w-[320px] md:w-[360px] rounded-2xl border border-gray-200 shadow-sm bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
-              >
-                <div className="relative w-full h-[200px] overflow-hidden rounded-t-2xl">
-                  <img
-                    src={Animations.image}
-                    alt={`Preview of ${Animations.title}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    aria-hidden="true"
-                    style={{
-                      background:
-                        "linear-gradient(to top, rgba(0,0,0,0.55), transparent)",
-                    }}
-                  />
-                </div>
-
-                <div className="p-5 flex flex-col gap-3 flex-1 bg-[#111111] rounded-b-2xl">
-                  <h3 className="text-base font-semibold text-white">
-                    {Animations.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-300 flex-1">
-                    {Animations.description}
-                  </p>
-
-                  <a
-                    href={Animations.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit site for ${Animations.title}`}
-                    className="mt-auto inline-flex items-center gap-1 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white rounded"
-                  >
-                    Visit site <FiArrowRight aria-hidden="true" />
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <button
-            onClick={() => scroll("right")}
-            aria-label="Scroll projects right"
-            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-white border border-gray-200 shadow-md rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900"
-          >
-            <FiChevronRight aria-hidden="true" />
-          </button>
-        </div>
+        <CardCarousel cards={animations} label="Animations 3D" />
       </div>
-
-      <style>{`
-        [role="list"]::-webkit-scrollbar { display: none; }
-      `}</style>
     </section>
   );
 }

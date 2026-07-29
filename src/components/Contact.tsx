@@ -1,7 +1,8 @@
-"use client";
-
 import { useState } from "react";
-import { FaGithub, FaDiscord, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { CONTACT } from "../data/site";
+
+const fieldClass =
+  "mt-1.5 w-full rounded-2xl border border-gray-300 bg-white px-5 py-3 text-gray-900 transition placeholder:text-gray-400 focus:border-[#1F7A4D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F7A4D]";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -9,205 +10,160 @@ export default function Contact() {
     email: "",
     message: "",
   });
-
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<"idle" | "sent">("idle");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((current) => ({
+      ...current,
+      [event.target.name]: event.target.value,
+    }));
+    setStatus("idle");
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     const subject = encodeURIComponent(`Contact from ${formData.name}`);
-
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     );
 
-    window.location.href = `mailto:huang.nicola@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
 
     setStatus("sent");
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <main>
-      <section
-        id="contact"
-        aria-labelledby="contact-title"
-        className="w-full py-24 px-6 md:px-12 bg-[#f0f4f8]"
-      >
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
-            <header>
-              <h2
-                id="contact-title"
-                className="text-3xl md:text-4xl font-bold text-gray-900"
+    <section
+      id="contact"
+      aria-labelledby="contact-title"
+      className="w-full bg-[#f0f4f8] px-4 py-20 sm:px-6 md:px-12 md:py-24"
+    >
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+        <div>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#1F7A4D]">
+            Get in touch
+          </p>
+
+          <h2
+            id="contact-title"
+            className="text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl"
+          >
+            Contact me
+          </h2>
+
+          <p className="mt-6 text-base leading-relaxed text-gray-800">
+            Please contact me via this form and I will reply within 24 hours.
+          </p>
+
+          <address className="mt-6 space-y-2 not-italic text-gray-800">
+            <p>
+              Phone:{" "}
+              <a
+                href={`tel:${CONTACT.phone}`}
+                className="rounded font-semibold text-gray-900 underline underline-offset-2 hover:text-[#1F7A4D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F7A4D]"
               >
-                Contact me
-              </h2>
+                {CONTACT.phoneDisplay}
+              </a>
+            </p>
 
-              <p className="mt-6 text-base text-gray-800 leading-relaxed">
-                Please contact me via this form and I will reply within 24
-                hours.
-              </p>
-            </header>
+            <p>
+              Email:{" "}
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="rounded font-semibold text-gray-900 underline underline-offset-2 hover:text-[#1F7A4D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F7A4D]"
+              >
+                {CONTACT.email}
+              </a>
+            </p>
+          </address>
 
-            <address className="not-italic mt-6 space-y-2 text-gray-800">
-              <p>
-                Phone:{" "}
-                <a
-                  href="tel:+33622414099"
-                  className="text-gray-900 font-semibold underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-700 rounded"
-                >
-                  +33 6 22 41 40 99
-                </a>
-              </p>
+        </div>
 
-              <p>
-                Email:{" "}
-                <a
-                  href="mailto:huang.nicola@gmail.com"
-                  className="text-gray-900 font-semibold underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-700 rounded"
-                >
-                  huang.nicola@gmail.com
-                </a>
-              </p>
-            </address>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          <h3 className="sr-only">Contact form</h3>
 
-            <nav aria-label="Social media links" className="mt-10">
-              <p className="text-sm font-semibold text-gray-700 mb-4">
-                Find me on
-              </p>
-
-              <div className="flex gap-5">
-                <a
-                  href="https://github.com/hNnicolas"
-                  aria-label="GitHub profile"
-                  className="text-green-700 focus-visible:ring-2 focus-visible:ring-green-700 rounded"
-                >
-                  <FaGithub size={26} />
-                </a>
-
-                <a
-                  href="https://discord.com/channels/@me"
-                  aria-label="Discord profile"
-                  className="text-green-700 focus-visible:ring-2 focus-visible:ring-green-700 rounded"
-                >
-                  <FaDiscord size={26} />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/huang-nicolas/"
-                  aria-label="LinkedIn profile"
-                  className="text-green-700 focus-visible:ring-2 focus-visible:ring-green-700 rounded"
-                >
-                  <FaLinkedin size={26} />
-                </a>
-
-                <a
-                  href="https://www.instagram.com/hfnicolas_/"
-                  aria-label="Instagram profile"
-                  className="text-green-700 focus-visible:ring-2 focus-visible:ring-green-700 rounded"
-                >
-                  <FaInstagram size={26} />
-                </a>
-              </div>
-            </nav>
+          <div>
+            <label htmlFor="name" className="text-sm font-medium text-gray-900">
+              Name <span aria-hidden="true">*</span>
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autoComplete="name"
+              aria-required="true"
+              value={formData.name}
+              onChange={handleChange}
+              className={fieldClass}
+            />
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            aria-label="Contact form"
-            className="flex flex-col gap-5"
-          >
-            <fieldset className="flex flex-col gap-5">
-              <legend className="sr-only">Contact form fields</legend>
+          <div>
+            <label htmlFor="email" className="text-sm font-medium text-gray-900">
+              Email <span aria-hidden="true">*</span>
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              aria-required="true"
+              aria-describedby="email-hint"
+              value={formData.email}
+              onChange={handleChange}
+              className={fieldClass}
+            />
+            <p id="email-hint" className="mt-1.5 text-xs text-gray-600">
+              I will only use this address to reply to you.
+            </p>
+          </div>
 
-              <div>
-                <label
-                  htmlFor="name"
-                  className="text-sm font-medium text-gray-900"
-                >
-                  Name *
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="mt-1 w-full px-5 py-3 rounded-full border border-gray-300 text-gray-900 focus-visible:ring-2 focus-visible:ring-green-700"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="text-sm font-medium text-gray-900"
-                >
-                  Email *
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="mt-1 w-full px-5 py-3 rounded-full border border-gray-300 text-gray-900 focus-visible:ring-2 focus-visible:ring-green-700"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="text-sm font-medium text-gray-900"
-                >
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="mt-1 w-full px-5 py-4 rounded-2xl border border-gray-300 text-gray-900 resize-none focus-visible:ring-2 focus-visible:ring-green-700"
-                />
-              </div>
-            </fieldset>
-
-            <div aria-live="polite" role="status">
-              {status === "sent" && (
-                <p className="text-green-700 font-medium">
-                  Message sent successfully!
-                </p>
-              )}
-
-              {status === "error" && (
-                <p className="text-red-700 font-medium">
-                  Something went wrong.
-                </p>
-              )}
-            </div>
-
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className="px-8 py-3 rounded-full bg-green-700 text-white font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green-700 disabled:opacity-60"
+          <div>
+            <label
+              htmlFor="message"
+              className="text-sm font-medium text-gray-900"
             >
-              {status === "sending" ? "Sending..." : "Send"}
-            </button>
-          </form>
-        </div>
-      </section>
-    </main>
+              Message <span aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={6}
+              required
+              aria-required="true"
+              value={formData.message}
+              onChange={handleChange}
+              className={`${fieldClass} resize-y`}
+            />
+          </div>
+
+          <p className="text-xs text-gray-600">
+            Fields marked with an asterisk are required.
+          </p>
+
+          <p role="status" aria-live="polite" className="min-h-[1.5rem]">
+            {status === "sent" && (
+              <span className="font-medium text-[#1F7A4D]">
+                Your email app should now be open with the message ready to
+                send.
+              </span>
+            )}
+          </p>
+
+          <button
+            type="submit"
+            className="w-full rounded-full bg-[#1F7A4D] px-8 py-3 font-semibold text-white transition hover:bg-[#2F9A63] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F7A4D] focus-visible:ring-offset-2 sm:w-auto sm:self-start"
+          >
+            Send message
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }

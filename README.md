@@ -6,7 +6,7 @@ Portfolio personnel développé avec **Next.js**, **React**, et **Tailwind CSS**
 ---
 
 ## 🌐 Visiter le site
-👉 [https://new-portfolio-nu-roan.vercel.app/](https://nicolashuangfolio.netlify.app/)
+👉 https://nicolashuangfolio.netlify.app/
 
 ---
 

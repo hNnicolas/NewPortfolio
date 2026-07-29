@@ -27,7 +27,8 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="w-full border-t border-white/10 bg-[#1C1C1D] px-4 py-12 sm:px-6 md:px-12">
-      <h2 className="sr-only">Site footer</h2>
+      {/* text-white so the inherited black doesn't fail contrast checks. */}
+      <h2 className="sr-only text-white">Site footer</h2>
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-3">
         <div>

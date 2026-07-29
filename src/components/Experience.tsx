@@ -6,10 +6,10 @@ type Entry = {
 
 const work: Entry[] = [
   {
-    period: "2026 — present",
-    role: "Developer (internship)",
+    period: "06.2026 — 08.2026",
+    role: "Fullstack Developer",
     place:
-      "InstrIA — contributed to the platform enabling new tools to be connected through OAuth",
+      "InstrIA, Paris — natural-language automation SaaS: users connect their apps over OAuth and a LangGraph agent orchestrates the workflow",
   },
   {
     period: "2025 — 2026",

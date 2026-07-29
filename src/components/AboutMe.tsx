@@ -95,9 +95,11 @@ export default function AboutMe() {
               className="h-40 w-40 rounded-full object-cover shadow-lg md:h-52 md:w-52"
             />
 
-            <p className="mt-6 text-xl font-bold text-black md:text-2xl">
+            {/* Styled as a heading, so it is marked up as one (h3 under the
+                section's h2) rather than as a bold paragraph. */}
+            <h3 className="mt-6 text-xl font-bold text-black md:text-2xl">
               Based in Paris
-            </p>
+            </h3>
 
             <p className="mt-2 text-lg text-[#2F855A]">
               {getAge("1986-05-24")} years old
@@ -107,7 +109,8 @@ export default function AboutMe() {
       </div>
 
       <div className="bg-[#1C1C1D] px-4 py-20 sm:px-6 md:px-12">
-        <h2 className="sr-only">Explore this portfolio</h2>
+        {/* text-white so the inherited black doesn't fail contrast checks. */}
+        <h2 className="sr-only text-white">Explore this portfolio</h2>
 
         <ul
           role="list"

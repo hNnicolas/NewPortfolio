@@ -62,27 +62,30 @@ export default function Navbar() {
   const linkBase =
     "relative rounded px-1 py-1 transition-colors hover:text-[#6EDC9B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6EDC9B] focus-visible:ring-offset-2 focus-visible:ring-offset-black";
 
+  /*
+   * Even over the hero the bar keeps a real dark background rather than going
+   * fully transparent: `bg-transparent` makes contrast checkers resolve the
+   * white links against the white page and report failures, and it left the
+   * links unreadable over any light content behind them.
+   */
   return (
     <div
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         isOverHero && !isOpen
-          ? "bg-transparent"
+          ? "bg-[#0E0E0F]/85 backdrop-blur-sm"
           : "bg-[#0E0E0F]/95 shadow-lg backdrop-blur-md"
       }`}
     >
+      {/*
+        Mobile keeps the toggle flush right; from lg the links are the only
+        content left in the bar, so they get centred rather than left-aligned.
+      */}
       <nav
         aria-label="Main"
-        className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 md:px-12"
+        className="mx-auto flex max-w-6xl items-center justify-end px-4 py-3 sm:px-6 lg:justify-center lg:px-8 lg:py-4 xl:px-12"
       >
-        <a
-          href="#top"
-          className="rounded text-sm font-bold tracking-wide text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6EDC9B] focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:text-base"
-        >
-          HUANG<span className="text-[#6EDC9B]">.</span>Nicolas
-        </a>
-
         {/* Desktop navigation */}
-        <ul className="hidden items-center gap-5 text-sm text-white lg:flex xl:gap-7">
+        <ul className="hidden items-center text-sm text-white lg:flex lg:gap-6 xl:gap-9">
           {NAV_ITEMS.map((item) => {
             const isActive = activeId === item.id;
 
@@ -108,23 +111,21 @@ export default function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center">
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={() => setIsOpen((open) => !open)}
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-            aria-label={isOpen ? "Close main menu" : "Open main menu"}
-            className="rounded p-2 text-white transition hover:text-[#6EDC9B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6EDC9B] focus-visible:ring-offset-2 focus-visible:ring-offset-black lg:hidden"
-          >
-            {isOpen ? (
-              <FiX size={24} aria-hidden="true" />
-            ) : (
-              <FiMenu size={24} aria-hidden="true" />
-            )}
-          </button>
-        </div>
+        <button
+          ref={toggleRef}
+          type="button"
+          onClick={() => setIsOpen((open) => !open)}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          aria-label={isOpen ? "Close main menu" : "Open main menu"}
+          className="-mr-2 rounded p-2 text-white transition hover:text-[#6EDC9B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6EDC9B] focus-visible:ring-offset-2 focus-visible:ring-offset-black lg:hidden"
+        >
+          {isOpen ? (
+            <FiX size={24} aria-hidden="true" />
+          ) : (
+            <FiMenu size={24} aria-hidden="true" />
+          )}
+        </button>
       </nav>
 
       {/* Mobile navigation */}
@@ -134,7 +135,7 @@ export default function Navbar() {
         hidden={!isOpen}
         className="border-t border-white/10 bg-[#0E0E0F]/98 backdrop-blur-md lg:hidden"
       >
-        <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2 sm:px-6">
+        <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3 sm:px-6">
           {NAV_ITEMS.map((item) => {
             const isActive = activeId === item.id;
 
@@ -155,7 +156,6 @@ export default function Navbar() {
               </li>
             );
           })}
-
         </ul>
       </div>
     </div>

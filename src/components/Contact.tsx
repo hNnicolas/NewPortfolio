@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CONTACT } from "../data/site";
+import MailInTransit from "./MailInTransit";
 
 const fieldClass =
   "mt-1.5 w-full rounded-2xl border border-gray-300 bg-white px-5 py-3 text-gray-900 transition placeholder:text-gray-400 focus:border-[#1F7A4D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F7A4D]";
@@ -69,18 +70,9 @@ export default function Contact() {
                 {CONTACT.phoneDisplay}
               </a>
             </p>
-
-            <p>
-              Email:{" "}
-              <a
-                href={`mailto:${CONTACT.email}`}
-                className="rounded font-semibold text-gray-900 underline underline-offset-2 hover:text-[#1F7A4D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F7A4D]"
-              >
-                {CONTACT.email}
-              </a>
-            </p>
           </address>
 
+          <MailInTransit />
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -104,7 +96,10 @@ export default function Contact() {
           </div>
 
           <div>
-            <label htmlFor="email" className="text-sm font-medium text-gray-900">
+            <label
+              htmlFor="email"
+              className="text-sm font-medium text-gray-900"
+            >
               Email <span aria-hidden="true">*</span>
             </label>
             <input

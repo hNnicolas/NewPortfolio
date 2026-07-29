@@ -32,6 +32,90 @@
   }
 }
 
+@layer components {
+  /*
+   * Decorative "message in transit" animation for the contact section.
+   * Pure CSS so it costs nothing at runtime: the envelope rides a motion
+   * path while a perspective tilt gives it depth.
+   */
+  .mail-stage {
+    position: relative;
+    width: 320px;
+    height: 170px;
+    perspective: 700px;
+  }
+
+  .mail-track {
+    stroke-dasharray: 6 8;
+    animation: mail-track-drift 3s linear infinite;
+  }
+
+  .mail-envelope {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: -22px 0 0 -22px;
+    border-radius: 9999px;
+    offset-path: path("M 24 132 C 96 26, 224 26, 296 100");
+    offset-rotate: 0deg;
+    transform-style: preserve-3d;
+    animation: mail-fly 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  }
+
+  .mail-landing {
+    transform-origin: center;
+    animation: mail-landing-pulse 5s ease-out infinite;
+  }
+
+  @keyframes mail-fly {
+    0% {
+      offset-distance: 0%;
+      opacity: 0;
+      transform: rotateX(38deg) rotateZ(-10deg) scale(0.72);
+    }
+    10% {
+      opacity: 1;
+      transform: rotateX(38deg) rotateZ(-6deg) scale(1);
+    }
+    88% {
+      opacity: 1;
+      transform: rotateX(38deg) rotateZ(6deg) scale(1);
+    }
+    100% {
+      offset-distance: 100%;
+      opacity: 0;
+      transform: rotateX(38deg) rotateZ(10deg) scale(0.72);
+    }
+  }
+
+  @keyframes mail-track-drift {
+    to {
+      stroke-dashoffset: -28;
+    }
+  }
+
+  @keyframes mail-landing-pulse {
+    0%,
+    80% {
+      opacity: 0.25;
+      transform: scale(1);
+    }
+    92% {
+      opacity: 0.9;
+      transform: scale(1.5);
+    }
+    100% {
+      opacity: 0.25;
+      transform: scale(1);
+    }
+  }
+}
+
 @layer utilities {
   /* Horizontal carousels: hide the scrollbar without hiding the scrolling. */
   .no-scrollbar {
@@ -56,5 +140,25 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /*
+   * The blanket rule above would freeze these on their final keyframe, which
+   * is the invisible one. Park them mid-flight and fully visible instead.
+   */
+  .mail-envelope {
+    animation: none !important;
+    offset-distance: 52%;
+    opacity: 1;
+    transform: rotateX(38deg);
+  }
+
+  .mail-track {
+    animation: none !important;
+  }
+
+  .mail-landing {
+    animation: none !important;
+    opacity: 0.6;
   }
 }

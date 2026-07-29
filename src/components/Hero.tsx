@@ -27,10 +27,15 @@ const socials = [
 
 export default function Hero() {
   return (
+    /*
+     * bg-[#0E0E0F] is declared on the element itself rather than left to the
+     * image: contrast checkers (and users whose image fails to load) then
+     * resolve the light text against a real dark colour, not the white page.
+     */
     <header
       id="top"
       tabIndex={-1}
-      className="relative flex min-h-[560px] w-full items-center justify-center overflow-hidden px-4 py-28 sm:min-h-[620px] md:min-h-[80vh]"
+      className="relative flex min-h-[560px] w-full items-center justify-center overflow-hidden bg-[#0E0E0F] px-4 py-28 sm:min-h-[620px] md:min-h-[80vh]"
     >
       {/*
         A real <img> rather than a CSS background so the browser can discover
@@ -62,7 +67,7 @@ export default function Hero() {
       />
 
       <div className="relative flex w-full max-w-3xl flex-col items-center text-center">
-        <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#6EDC9B]/40 bg-black/50 px-4 py-1.5 text-xs font-medium text-[#6EDC9B] sm:text-sm">
+        <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#6EDC9B]/50 bg-[#0E0E0F] px-4 py-1.5 text-xs font-medium text-[#6EDC9B] sm:text-sm">
           <span
             aria-hidden="true"
             className="h-2 w-2 rounded-full bg-[#6EDC9B]"
@@ -95,7 +100,7 @@ export default function Hero() {
             href="/CV_Nicolas.pdf"
             download
             type="application/pdf"
-            className="inline-flex w-full items-center justify-center rounded-full border border-white/40 bg-white/5 px-7 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:w-auto"
+            className="inline-flex w-full items-center justify-center rounded-full border border-white/50 bg-[#1A1A1C] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#2A2A2D] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black sm:w-auto"
           >
             Download resume
             <span className="ml-2 text-xs opacity-80">(PDF)</span>

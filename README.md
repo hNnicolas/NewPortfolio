@@ -31,14 +31,3 @@ Ce portfolio a été conçu pour mettre en valeur :
 - HTML5 / SEO / Accessibilité (WCAG)
 - Git & GitHub
 
----
-
-## 📸 Aperçu des sections
-
-![Hero](./public/screenshots/hero.png)
-![About Me](./public/screenshots/aboutme.png)
-![Skills](./public/screenshots/skills.png)
-![Languages](./public/screenshots/languages.png)
-![Experience](./public/screenshots/experience.png)
-![Projects](./public/screenshots/projects.png)
-![Contact](./public/screenshots/contact.png)

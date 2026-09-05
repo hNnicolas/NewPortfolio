@@ -6,6 +6,12 @@ type Entry = {
 
 const work: Entry[] = [
   {
+    period: "09.2026 — present",
+    role: "Fullstack Developer — AI Integration & Automation",
+    place:
+      "Pause-Com, Paris (apprenticeship, on-site) — cut manual business-process handling time by over 80% by automating workflows; built fullstack web apps for agency clients (hotel & restaurant chains); integrated generative AI to automate internal and client processes; designed automation pipelines for data sync and repetitive tasks; partnered with marketing teams to turn business needs into technical solutions",
+  },
+  {
     period: "06.2026 — 08.2026",
     role: "Fullstack Developer",
     place:

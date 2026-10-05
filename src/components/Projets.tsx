@@ -1,5 +1,6 @@
 import CardCarousel, { type CarouselCard } from "./CardCarousel";
 
+// Most recent first.
 const projects: CarouselCard[] = [
   {
     id: 1,
@@ -31,14 +32,6 @@ It then compares prices across Amazon, Carrefour, Auchan, Monoprix, Fnac and Cul
   },
   {
     id: 4,
-    title: "Explore Norway",
-    description:
-      "A showcase website designed to make you want to discover Norway — built for lovers of beautiful design, landscapes and plants.",
-    image: "/images/norway.webp",
-    link: "https://norway-trip.netlify.app/",
-  },
-  {
-    id: 5,
     title: "Recettes du Quotidien",
     description:
       "A dynamic web application for browsing and searching recipes, with a custom search algorithm and filtering by ingredients, appliances and utensils.",
@@ -46,12 +39,21 @@ It then compares prices across Amazon, Carrefour, Auchan, Monoprix, Fnac and Cul
     link: "https://p5-lespetits-plats.netlify.app/",
   },
   {
-    id: 6,
+    id: 5,
     title: "Ohmyfood",
     description:
       "A responsive web application that lets users explore menus from gourmet restaurants and compose their meals in advance, with CSS-only animations.",
     image: "/images/ohmyfood.webp",
     link: "https://p5-ohmyfood.netlify.app/",
+  },
+  {
+    id: 6,
+    title: "Print It",
+    description: `A dynamic image carousel built for a digital and print solutions company.
+
+It showcases high-definition printing and large-format production for offices, events and professional communication, focusing on a smooth interactive way to present visual content.`,
+    image: "/images/printit.webp",
+    link: "https://p3print-it.netlify.app/",
   },
   {
     id: 7,
@@ -64,12 +66,11 @@ The goal was to reproduce a supplied mockup pixel for pixel while meeting strict
   },
   {
     id: 8,
-    title: "Print It",
-    description: `A dynamic image carousel built for a digital and print solutions company.
-
-It showcases high-definition printing and large-format production for offices, events and professional communication, focusing on a smooth interactive way to present visual content.`,
-    image: "/images/printit.webp",
-    link: "https://p3print-it.netlify.app/",
+    title: "Explore Norway",
+    description:
+      "A showcase website designed to make you want to discover Norway — built for lovers of beautiful design, landscapes and plants.",
+    image: "/images/norway.webp",
+    link: "https://norway-trip.netlify.app/",
   },
 ];
 
